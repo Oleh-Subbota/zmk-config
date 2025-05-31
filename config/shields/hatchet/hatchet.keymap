@@ -1,0 +1,111 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    behaviors {
+        hmr: hmr {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMR";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <175>;
+            quick-tap-ms = <175>;
+            flavor = "tap-preferred";
+        };
+
+        hmrs: hmrs {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMRS";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+        };
+
+        td_quotes: td_quotes {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_QUOTES";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
+
+            tapping-term-ms = <150>;
+        };
+
+        hold_arrow: hold_arrow {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_ARROW";
+            bindings = <&arrow>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <175>;
+            flavor = "tap-preferred";
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        Esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <2 3>;
+        };
+
+        Bksps {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <8 9>;
+        };
+
+        Delete {
+            bindings = <&kp DELETE>;
+            key-positions = <32 33>;
+        };
+    };
+
+    macros {
+        arrow: arr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp EQUAL &kp GT>;
+            label = "ARR";
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        Colemak_dh {
+            bindings = <
+                &kp Q             &kp D             &kp F         &kp P          &kp B             &kp J                       &kp L          &kp U                  &kp Y            &kp SLASH
+                &hmrs LEFT_GUI A  &hmrs LEFT_ALT R  &hmr LCTRL S  &hmr LSHIFT T  &kp G             &kp M                       &hmr RSHIFT N  &hmr RIGHT_CONTROL E   &kp I            &kp O
+                &kp X             &hmr LC(C) C      &kp W         &hmr LC(V) V   &kp Z             &kp K                       &kp H          &hmrs SEMICOLON COMMA  &hmrs COLON DOT  &td_quotes
+                                                                  &lt 1 SPACE   &hmr LCTRL TAB     &hmr RIGHT_SHIFT BACKSPACE  &lt 2 ENTER    
+            >;
+        };
+
+        symnum {
+            display-name = "symnum";
+
+            bindings = <
+                &mt TILDE GRAVE     &kp POUND                  &kp LEFT_BRACE                      &kp RIGHT_BRACE                    &kp ASTERISK    &kp PLUS             &kp N7        &kp N8        &kp N9               &kp AMPERSAND  
+                &hmrs LGUI AT_SIGN  &hmrs LEFT_ALT UNDERSCORE  &hmr LEFT_CONTROL LEFT_PARENTHESIS  &hmr LEFT_SHIFT RIGHT_PARENTHESIS  &kp DOLLAR      &kp MINUS            &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6         &kp PIPE
+                &kp PERCENT         &kp EXCLAMATION            &kp LEFT_BRACKET                    &kp RIGHT_BRACKET                  &kp CARET       &hold_arrow 0 EQUAL  &kp NUMBER_1  &kp NUMBER_2  &mt PERIOD NUMBER_3  &kp BACKSLASH
+                                                                                                   &to 0                              &trans          &trans               &kp N0        
+            >;
+        };
+
+        fn {
+            display-name = "fn";
+
+            bindings = <
+                &kp F1         &kp F2         &kp F3         &kp F4          &kp INS            &kp HOME  &kp PAGE_DOWN   &kp PG_UP        &kp END    &bt BT_CLR_ALL
+                &hmrs LGUI F5  &hmrs LALT F6  &hmr LCTRL F7  &hmr LSHIFT F8  &kp PRINTSCREEN    &kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW     &kp RIGHT  &bt BT_SEL 0
+                &kp F9         &kp F10        &kp F11        &kp F12         &none              &none     &kp C_VOL_DN    &kp C_VOLUME_UP  &none      &bt BT_SEL 1
+                                                             &to 0           &trans             &trans    &trans
+            >;
+        };
+    };
+
+    conditional_layers { compatible = "zmk,conditional-layers"; };
+ };
