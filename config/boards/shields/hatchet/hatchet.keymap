@@ -87,7 +87,7 @@
                 &mt TILDE GRAVE     &kp POUND                  &kp LEFT_BRACE                      &kp RIGHT_BRACE                    &kp ASTERISK    &kp PLUS             &kp N7        &kp N8        &kp N9               &kp AMPERSAND  
                 &hmrs LGUI AT_SIGN  &hmrs LEFT_ALT UNDERSCORE  &hmr LEFT_CONTROL LEFT_PARENTHESIS  &hmr LEFT_SHIFT RIGHT_PARENTHESIS  &kp DOLLAR      &kp MINUS            &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6         &kp PIPE
                 &kp PERCENT         &kp EXCLAMATION            &kp LEFT_BRACKET                    &kp RIGHT_BRACKET                  &kp CARET       &hold_arrow 0 EQUAL  &kp NUMBER_1  &kp NUMBER_2  &mt PERIOD NUMBER_3  &kp BACKSLASH
-                                                                                                   &trans                              &trans          &trans               &kp N0        
+                                                                                                   &trans                             &trans          &trans               &kp N0        
             >;
         };
 
@@ -98,7 +98,7 @@
                 &kp F1         &kp F2         &kp F3         &kp F4          &kp INS            &kp HOME  &kp PAGE_DOWN   &kp PG_UP        &kp END    &bt BT_CLR_ALL
                 &hmrs LGUI F5  &hmrs LALT F6  &hmr LCTRL F7  &hmr LSHIFT F8  &kp PRINTSCREEN    &kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW     &kp RIGHT  &bt BT_SEL 0
                 &kp F9         &kp F10        &kp F11        &kp F12         &none              &none     &kp C_VOL_DN    &kp C_VOL_UP     &none      &bt BT_SEL 1
-                                                             &trans           &trans             &trans    &trans
+                                                             &trans          &trans             &trans    &trans
             >;
         };
     };
